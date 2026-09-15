@@ -23,7 +23,7 @@ Las siguientes imágenes muestran el desarrollo de la práctica y los comandos u
 
 ### 4. Cuarta imagen
 
-![Cuarta imagen](./Imágenes/CuartaCmdBasic.jpeg)
+![Cuarta imagen](./Imágenes/CuartaCmdBasic.jpg)
 
 ## Video de la práctica
 

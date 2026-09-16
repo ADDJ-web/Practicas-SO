@@ -88,7 +88,7 @@ El reporte escrito de la práctica se encuentra en la carpeta [`./Reporte`](./Re
 
 A continuación se encuentra el video correspondiente a la práctica:
 
-[Ver video de la práctica]([ENLACE_DE_YOUTUBE](https://www.youtube.com/watch?v=WpotKuYWPtI))
+[Ver video de la práctica](https://www.youtube.com/watch?v=WpotKuYWPtI)
 
 ## Conclusiones técnicas
 

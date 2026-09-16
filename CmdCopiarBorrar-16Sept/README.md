@@ -1,269 +1,101 @@
-````markdown
-# Práctica: Comandos Básicos de Linux
+# Práctica: Comandos de copiar y borrar en Linux
 
-## 📁 Estructura del proyecto
+* Se crearon directorios y archivos de prueba desde la terminal para preparar el entorno de trabajo.
+* Se practicó el uso de `cp` para copiar archivos individuales entre directorios y `cp -r` para copiar directorios completos.
+* Se utilizó la opción `-v` (modo detallado) para visualizar en pantalla cada operación realizada por el comando.
+* Se practicó `rm` para eliminar archivos y `rm -r` para eliminar directorios junto con su contenido.
+* Se navegó entre directorios con `cd`, incluyendo rutas relativas como `../practica2`, y se verificó cada resultado con `ls -l`.
 
-El proyecto está organizado de la siguiente manera:
+## Objetivos
 
-```text
-CmdCopiarBorrar-16Sept/
-├── Código/
-│   ├── README.txt
-│   └── script.sh
-│
-├── Reporte/
-│   ├── README.txt
-│   └── Reporte de Práctica - Gestión de Archivos.pdf
-│
-├── Terminal/
-│   ├── README.txt
-│   ├── parte1.jpg
-│   ├── parte2.jpg
-│   └── parte3.jpg
-│
-├── Video/
-│   └── README.txt
-│
-└── README.md
-```
+* Crear la estructura de directorios y archivos necesaria para realizar operaciones de copiado y borrado.
+* Copiar archivos y directorios utilizando rutas absolutas y relativas.
+* Comprender la diferencia entre copiar un archivo y copiar un directorio de forma recursiva.
+* Eliminar archivos y directorios de manera controlada, reconociendo cuándo el sistema solicita confirmación.
+* Verificar con `ls -l` el estado del sistema de archivos después de cada operación.
+* Identificar el efecto de `sudo` sobre el propietario y los permisos de los archivos creados.
 
-## 🎯 Objetivos
+## Explicación de los comandos utilizados
 
-- Practicar el uso de comandos básicos de Linux desde la terminal.
-- Aprender a copiar, mover y eliminar archivos y directorios.
-- Comprender la navegación y organización del sistema de archivos.
-- Utilizar comandos de Linux para realizar operaciones de gestión de archivos.
-- Crear y ejecutar un script de Shell para automatizar comandos.
+### Preparación del entorno
 
----
+| Comando | Descripción |
+| --- | --- |
+| `mkdir practica1 practica2` | Crea dos directorios en una sola instrucción dentro de la ubicación actual. |
+| `mkdir vacia` / `mkdir info` | Crea directorios individuales usados como origen de las copias recursivas. |
+| `ls -l` | Lista el contenido en formato largo: permisos, propietario, grupo, tamaño y fecha. |
+| `cd practica1` | Entra al directorio indicado mediante una ruta relativa. |
+| `cd ../practica2` | Sube un nivel y entra a un directorio hermano en la misma instrucción. |
+| `sudo nano Readme.txt` | Abre el editor de texto con privilegios de administrador para crear el archivo. |
 
-# 💻 Comandos utilizados
+### Copiar
 
-Durante la práctica se utilizaron diferentes comandos para navegar por el sistema de archivos y realizar operaciones sobre archivos y directorios.
+| Comando | Descripción |
+| --- | --- |
+| `cp -v Readme.txt ~/Documentos/practica2/` | Copia el archivo al directorio destino usando ruta absoluta con `~`; `-v` muestra el origen y el destino de la copia. |
+| `cp -v -r vacia ../practica1` | Copia un directorio de forma recursiva; al estar vacío solo se reporta la creación del directorio. |
+| `cp -v -r info ../practica1` | Copia el directorio junto con su contenido; el modo detallado reporta una línea por el directorio y otra por cada archivo interno. |
 
-### `pwd`
+La opción `-r` (recursiva) es obligatoria para directorios: sin ella, `cp` omite el directorio y devuelve un error.
 
-Muestra la ruta del directorio actual.
+### Borrar
 
-```bash
-pwd
-```
+| Comando | Descripción |
+| --- | --- |
+| `rm Readme.txt` | Elimina un archivo de forma permanente. Al pertenecer a `root`, el sistema solicitó confirmación por tratarse de un archivo protegido contra escritura. |
+| `rm -r -v info/` | Elimina el directorio y todo su contenido; `-v` reporta cada archivo borrado y el directorio eliminado. |
 
-### `ls`
+## Código
 
-Muestra el contenido del directorio actual.
+El script que reproduce la secuencia de la práctica se encuentra en:
 
-```bash
-ls
-```
+[`./Código/script.sh`](./Código/script.sh)
 
-También se utilizaron diferentes opciones:
+Para ejecutarlo desde la terminal:
 
 ```bash
-ls -l
-ls -la
-ls -lh
+chmod +x script.sh
+./script.sh
 ```
 
-- `-l`: muestra información detallada.
-- `-a`: muestra también los archivos ocultos.
-- `-h`: muestra los tamaños de forma legible.
+## Imágenes de la práctica
 
-### `cd`
+Las siguientes imágenes muestran el desarrollo de la práctica y los comandos utilizados en la terminal.
 
-Permite cambiar de directorio.
+### 1. Primera parte
 
-```bash
-cd nombre_directorio
-```
+Creación de `practica1` y `practica2`, creación del archivo `Readme.txt` con `sudo nano` y copia del archivo hacia `practica2`.
 
-Para subir un nivel:
+![Primera parte](./Terminal/parte1.jpg)
 
-```bash
-cd ..
-```
+### 2. Segunda parte
 
-Para regresar al directorio personal:
+Creación de los directorios `vacia` e `info` dentro de `practica2` y copia recursiva de ambos hacia `practica1`.
 
-```bash
-cd ~
-```
+![Segunda parte](./Terminal/parte2.jpg)
 
-### `mkdir`
+### 3. Tercera parte
 
-Permite crear directorios.
+Eliminación del archivo `Readme.txt` y del directorio `info` dentro de `practica1`, con verificación final del contenido.
 
-```bash
-mkdir nombre_directorio
-```
+![Tercera parte](./Terminal/parte3.jpg)
 
-### `touch`
+## Reporte
 
-Permite crear archivos vacíos.
+El reporte escrito de la práctica se encuentra en la carpeta [`./Reporte`](./Reporte).
 
-```bash
-touch archivo.txt
-```
+## Video de la práctica
 
-### `cp`
+A continuación se encuentra el video correspondiente a la práctica:
 
-Permite copiar archivos o directorios.
+[Ver video de la práctica]([ENLACE_DE_YOUTUBE](https://www.youtube.com/watch?v=WpotKuYWPtI))
 
-```bash
-cp archivo.txt carpeta/
-```
+## Conclusiones técnicas
 
-Para copiar un directorio completo:
-
-```bash
-cp -r carpeta1 carpeta2
-```
-
-### `mv`
-
-Permite mover o renombrar archivos y directorios.
-
-Para mover un archivo:
-
-```bash
-mv archivo.txt carpeta/
-```
-
-Para cambiar el nombre:
-
-```bash
-mv archivo.txt nuevo_nombre.txt
-```
-
-### `rm`
-
-Permite eliminar archivos.
-
-```bash
-rm archivo.txt
-```
-
-Para eliminar un directorio y su contenido:
-
-```bash
-rm -r carpeta/
-```
-
-> **Nota:** `rm` elimina los archivos directamente desde la terminal, por lo que debe utilizarse con precaución.
-
-### `cat`
-
-Permite visualizar el contenido de un archivo de texto.
-
-```bash
-cat archivo.txt
-```
-
-### `clear`
-
-Limpia la pantalla de la terminal.
-
-```bash
-clear
-```
-
----
-
-# 📜 Script de Shell
-
-En la carpeta `Código` se encuentra el archivo `script.sh`, utilizado para automatizar comandos de la práctica.
-
-## Contenido del script
-
-El script puede visualizarse directamente desde GitHub utilizando el siguiente enlace:
-
-[📄 Ver script.sh](./Código/script.sh)
-
-También puede ejecutarse desde la terminal mediante:
-
-```bash
-bash Código/script.sh
-```
-
-O proporcionando permisos de ejecución:
-
-```bash
-chmod +x Código/script.sh
-```
-
-Y posteriormente:
-
-```bash
-./Código/script.sh
-```
-
----
-
-# 🖥️ Evidencias de la práctica
-
-Las siguientes imágenes muestran las actividades realizadas desde la terminal.
-
-## Parte 1
-
-![Evidencia Parte 1](./Terminal/parte1.jpg)
-
-## Parte 2
-
-![Evidencia Parte 2](./Terminal/parte2.jpg)
-
-## Parte 3
-
-![Evidencia Parte 3](./Terminal/parte3.jpg)
-
----
-
-# 📄 Reporte
-
-El reporte completo de la práctica se encuentra dentro de la carpeta `Reporte`.
-
-[📄 Ver Reporte de Práctica](./Reporte/Reporte%20de%20Pr%C3%A1ctica%20-%20Gesti%C3%B3n%20de%20Archivos.pdf)
-
----
-
-# 🎥 Video
-
-La carpeta `Video` contiene la información correspondiente al video de evidencia de la práctica.
-
----
-
-# 🔬 Conclusiones técnicas
-
-Durante esta práctica se comprendió el funcionamiento básico de la gestión de archivos y directorios en Linux mediante la terminal.
-
-Los comandos `cp`, `mv` y `rm` permiten realizar operaciones fundamentales sobre archivos y carpetas. Por otra parte, comandos como `ls`, `cd` y `pwd` facilitan la navegación y visualización de la estructura del sistema de archivos.
-
-También se comprobó que muchas operaciones que normalmente se realizan mediante una interfaz gráfica pueden llevarse a cabo directamente desde la terminal. Esto permite realizar tareas de manera rápida y facilita la automatización mediante scripts.
-
-El uso de `script.sh` permitió introducir el concepto de automatización mediante Shell, demostrando que una serie de comandos puede ejecutarse de forma organizada mediante un solo archivo.
-
----
-
-# 👨‍💻 Tecnologías utilizadas
-
-- Linux
-- Bash / Shell
-- Terminal
-- Git
-- GitHub
-- Markdown
-
----
-
-# 📌 Organización del proyecto
-
-El proyecto separa sus elementos en diferentes carpetas:
-
-| Carpeta | Contenido |
-|---|---|
-| `Código` | Script de Shell y documentación del código |
-| `Terminal` | Capturas de pantalla de la práctica |
-| `Reporte` | Reporte escrito de la práctica |
-| `Video` | Material relacionado con el video de evidencia |
-
-Esta organización permite mantener separados el código, las evidencias y la documentación, facilitando la revisión y comprensión del proyecto.
-````
+* Los comandos `cp` y `rm` comparten la estructura `comando [opciones] origen [destino]`, por lo que dominar el patrón permite aplicarlo a otras herramientas de la terminal.
+* La opción `-r` es indispensable al trabajar con directorios: tanto `cp` como `rm` actúan únicamente sobre archivos si no se indica el modo recursivo.
+* La opción `-v` resulta muy útil con fines didácticos y de verificación, ya que confirma explícitamente qué ruta de origen se copió o borró y hacia dónde, evitando suposiciones sobre el resultado.
+* Copiar un directorio vacío genera una sola línea de salida, mientras que copiar un directorio con contenido genera una línea por cada elemento; esto evidencia que la copia recursiva recorre el árbol completo.
+* Crear el archivo con `sudo nano` dejó a `root` como propietario (`-rw-r--r-- 1 root root`), lo que provocó que `rm` pidiera confirmación por tratarse de un archivo protegido contra escritura para el usuario actual. Usar privilegios elevados innecesariamente complica la gestión posterior de los archivos.
+* La eliminación con `rm` es definitiva: el sistema no conserva una copia de respaldo, por lo que conviene verificar la ruta con `pwd` y `ls -l` antes de ejecutar cualquier borrado recursivo.
+* Alternar entre rutas absolutas (`~/Documentos/practica2/`) y relativas (`../practica1`) demuestra que ambas notaciones son equivalentes para el sistema, y que las relativas agilizan el trabajo cuando los directorios están en el mismo nivel.

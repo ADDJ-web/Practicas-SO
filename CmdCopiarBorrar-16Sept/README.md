@@ -1,11 +1,9 @@
-Claro. Basándome en la jerarquía que muestras, puedes poner este contenido directamente en tu `README.md`:
-
 ````markdown
 # Práctica: Comandos Básicos de Linux
 
 ## 📁 Estructura del proyecto
 
-La práctica se encuentra organizada en las siguientes carpetas:
+El proyecto está organizado de la siguiente manera:
 
 ```text
 CmdCopiarBorrar-16Sept/
@@ -27,23 +25,25 @@ CmdCopiarBorrar-16Sept/
 │   └── README.txt
 │
 └── README.md
-````
+```
 
 ## 🎯 Objetivos
 
-* Practicar el uso de comandos básicos de Linux desde la terminal.
-* Aprender a copiar, mover y eliminar archivos y directorios.
-* Comprender la estructura de directorios y la navegación mediante la terminal.
-* Utilizar comandos de Linux para gestionar archivos de manera eficiente.
-* Familiarizarse con la ejecución de scripts de Shell.
+- Practicar el uso de comandos básicos de Linux desde la terminal.
+- Aprender a copiar, mover y eliminar archivos y directorios.
+- Comprender la navegación y organización del sistema de archivos.
+- Utilizar comandos de Linux para realizar operaciones de gestión de archivos.
+- Crear y ejecutar un script de Shell para automatizar comandos.
 
-## 💻 Comandos utilizados
+---
 
-Durante la práctica se utilizaron diferentes comandos para la gestión y manipulación de archivos.
+# 💻 Comandos utilizados
+
+Durante la práctica se utilizaron diferentes comandos para navegar por el sistema de archivos y realizar operaciones sobre archivos y directorios.
 
 ### `pwd`
 
-Muestra la ruta del directorio actual en el que se encuentra el usuario.
+Muestra la ruta del directorio actual.
 
 ```bash
 pwd
@@ -57,7 +57,7 @@ Muestra el contenido del directorio actual.
 ls
 ```
 
-También se pueden utilizar opciones para obtener información adicional:
+También se utilizaron diferentes opciones:
 
 ```bash
 ls -l
@@ -65,9 +65,9 @@ ls -la
 ls -lh
 ```
 
-* `-l`: muestra información detallada.
-* `-a`: incluye archivos ocultos.
-* `-h`: muestra tamaños en un formato legible.
+- `-l`: muestra información detallada.
+- `-a`: muestra también los archivos ocultos.
+- `-h`: muestra los tamaños de forma legible.
 
 ### `cd`
 
@@ -77,7 +77,7 @@ Permite cambiar de directorio.
 cd nombre_directorio
 ```
 
-Para regresar al directorio anterior:
+Para subir un nivel:
 
 ```bash
 cd ..
@@ -91,7 +91,7 @@ cd ~
 
 ### `mkdir`
 
-Crea un nuevo directorio.
+Permite crear directorios.
 
 ```bash
 mkdir nombre_directorio
@@ -99,7 +99,7 @@ mkdir nombre_directorio
 
 ### `touch`
 
-Crea un archivo vacío.
+Permite crear archivos vacíos.
 
 ```bash
 touch archivo.txt
@@ -123,11 +123,13 @@ cp -r carpeta1 carpeta2
 
 Permite mover o renombrar archivos y directorios.
 
+Para mover un archivo:
+
 ```bash
 mv archivo.txt carpeta/
 ```
 
-También puede utilizarse para cambiar el nombre de un archivo:
+Para cambiar el nombre:
 
 ```bash
 mv archivo.txt nuevo_nombre.txt
@@ -141,13 +143,13 @@ Permite eliminar archivos.
 rm archivo.txt
 ```
 
-Para eliminar un directorio junto con su contenido:
+Para eliminar un directorio y su contenido:
 
 ```bash
 rm -r carpeta/
 ```
 
-> **Nota:** El comando `rm` elimina directamente los archivos desde la terminal, por lo que debe utilizarse con cuidado.
+> **Nota:** `rm` elimina los archivos directamente desde la terminal, por lo que debe utilizarse con precaución.
 
 ### `cat`
 
@@ -159,82 +161,109 @@ cat archivo.txt
 
 ### `clear`
 
-Limpia el contenido visible de la terminal.
+Limpia la pantalla de la terminal.
 
 ```bash
 clear
 ```
 
-## 📜 Script de Shell
+---
 
-Dentro de la carpeta `Código` se encuentra el archivo:
+# 📜 Script de Shell
 
-```text
-script.sh
-```
+En la carpeta `Código` se encuentra el archivo `script.sh`, utilizado para automatizar comandos de la práctica.
 
-Este archivo contiene comandos de Shell utilizados para automatizar parte de las actividades realizadas durante la práctica.
+## Contenido del script
 
-Para ejecutar un script se puede utilizar:
+El script puede visualizarse directamente desde GitHub utilizando el siguiente enlace:
 
-```bash
-bash script.sh
-```
+[📄 Ver script.sh](./Código/script.sh)
 
-También puede otorgarse permiso de ejecución:
+También puede ejecutarse desde la terminal mediante:
 
 ```bash
-chmod +x script.sh
+bash Código/script.sh
 ```
 
-Y posteriormente ejecutarse con:
+O proporcionando permisos de ejecución:
 
 ```bash
-./script.sh
+chmod +x Código/script.sh
 ```
 
-## 🖥️ Evidencias
+Y posteriormente:
 
-La carpeta `Terminal` contiene las capturas de pantalla correspondientes a las actividades realizadas desde la terminal:
+```bash
+./Código/script.sh
+```
 
-* `parte1.jpg`
-* `parte2.jpg`
-* `parte3.jpg`
+---
 
-Estas evidencias muestran la ejecución de los comandos y los resultados obtenidos durante la práctica.
+# 🖥️ Evidencias de la práctica
 
-## 📄 Reporte
+Las siguientes imágenes muestran las actividades realizadas desde la terminal.
 
-La carpeta `Reporte` contiene el reporte escrito de la práctica, donde se documentan las actividades realizadas, los comandos utilizados y los resultados obtenidos.
+## Parte 1
 
-## 🎥 Video
+![Evidencia Parte 1](./Terminal/parte1.jpg)
 
-La carpeta `Video` está destinada a contener la evidencia en video correspondiente a la práctica.
+## Parte 2
 
-## 🔬 Conclusiones técnicas
+![Evidencia Parte 2](./Terminal/parte2.jpg)
+
+## Parte 3
+
+![Evidencia Parte 3](./Terminal/parte3.jpg)
+
+---
+
+# 📄 Reporte
+
+El reporte completo de la práctica se encuentra dentro de la carpeta `Reporte`.
+
+[📄 Ver Reporte de Práctica](./Reporte/Reporte%20de%20Pr%C3%A1ctica%20-%20Gesti%C3%B3n%20de%20Archivos.pdf)
+
+---
+
+# 🎥 Video
+
+La carpeta `Video` contiene la información correspondiente al video de evidencia de la práctica.
+
+---
+
+# 🔬 Conclusiones técnicas
 
 Durante esta práctica se comprendió el funcionamiento básico de la gestión de archivos y directorios en Linux mediante la terminal.
 
-Los comandos `cp`, `mv` y `rm` permiten realizar operaciones fundamentales sobre archivos y carpetas, mientras que comandos como `ls`, `cd` y `pwd` facilitan la navegación y visualización de la estructura del sistema de archivos.
+Los comandos `cp`, `mv` y `rm` permiten realizar operaciones fundamentales sobre archivos y carpetas. Por otra parte, comandos como `ls`, `cd` y `pwd` facilitan la navegación y visualización de la estructura del sistema de archivos.
 
-También se comprobó que muchas tareas realizadas mediante interfaces gráficas pueden ejecutarse directamente desde la terminal. Esto permite trabajar de manera más rápida y automatizada, especialmente cuando se manejan múltiples archivos o se crean scripts para repetir determinadas operaciones.
+También se comprobó que muchas operaciones que normalmente se realizan mediante una interfaz gráfica pueden llevarse a cabo directamente desde la terminal. Esto permite realizar tareas de manera rápida y facilita la automatización mediante scripts.
 
-Finalmente, el uso de `script.sh` permitió introducir el concepto de automatización mediante Shell, demostrando que la terminal no solamente sirve para ejecutar comandos individuales, sino también para crear secuencias de instrucciones que pueden realizar tareas de forma automática.
+El uso de `script.sh` permitió introducir el concepto de automatización mediante Shell, demostrando que una serie de comandos puede ejecutarse de forma organizada mediante un solo archivo.
 
-## 👨‍💻 Tecnologías utilizadas
+---
 
-* Linux
-* Bash / Shell
-* Terminal
-* Git / GitHub
-* Markdown
+# 👨‍💻 Tecnologías utilizadas
 
-## 📌 Organización
+- Linux
+- Bash / Shell
+- Terminal
+- Git
+- GitHub
+- Markdown
 
-La estructura del proyecto separa el código, las evidencias de terminal, el reporte y el material audiovisual en carpetas independientes, facilitando la organización y revisión de los archivos de la práctica.
+---
 
-```
+# 📌 Organización del proyecto
 
-Eso cubre explícitamente **Código, Terminal, Reporte y Video**, además de los tres puntos que te están pidiendo en el `README.md`: **objetivos, explicación de comandos y conclusiones técnicas**. La criatura ya queda bastante más presentable que un repositorio con veinte archivos tirados en la raíz como si hubiera explotado una carpeta de Windows.
-```
+El proyecto separa sus elementos en diferentes carpetas:
 
+| Carpeta | Contenido |
+|---|---|
+| `Código` | Script de Shell y documentación del código |
+| `Terminal` | Capturas de pantalla de la práctica |
+| `Reporte` | Reporte escrito de la práctica |
+| `Video` | Material relacionado con el video de evidencia |
+
+Esta organización permite mantener separados el código, las evidencias y la documentación, facilitando la revisión y comprensión del proyecto.
+````

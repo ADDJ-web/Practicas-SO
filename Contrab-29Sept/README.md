@@ -143,7 +143,7 @@ El reporte formal documentado de la práctica se encuentra dentro del directorio
 
 A continuación se encuentra el enlace al video con la explicación y demostración práctica del proyecto:
 
-[Ver video explicativo del proyecto en YouTube](https://www.youtube.com/watch?v=TU_ID_DE_YOUTUBE)
+[Ver video explicativo del proyecto en YouTube](https://youtu.be/MJK1U8od2x4)
 
 ## Conclusiones técnicas
 

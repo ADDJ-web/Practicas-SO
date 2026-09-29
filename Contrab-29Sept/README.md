@@ -137,7 +137,7 @@ Lectura posterior del archivo `salud.log` donde se aprecian múltiples bloques g
 
 ## Reporte
 
-El reporte formal documentado de la práctica se encuentra dentro del directorio [`./Reporte`](./Reporte).
+El reporte formal documentado de la práctica se encuentra dentro del directorio [`./Reporte`](./Reporte/ReporteContrab.pdf).
 
 ## Video de la práctica
 

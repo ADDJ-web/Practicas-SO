@@ -132,7 +132,7 @@ El análisis teórico y la justificación técnica de esta práctica se encuentr
 
 A continuación se encuentra el enlace al video con la explicación y demostración práctica del proyecto:
 
-[Ver video explicativo del proyecto en YouTube](TU_ENLACE_AQUI)
+[Ver video explicativo del proyecto en YouTube](https://www.youtube.com/watch?v=DF9vo8-H1Ng)
 
 ## Conclusiones técnicas
 

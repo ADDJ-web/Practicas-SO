@@ -1,4 +1,4 @@
-# Compartición de Archivos en Red Local Heterogénea (Ubuntu - Ubuntu y Ubuntu - Windows con Samba)**
+# Compartición de Archivos en Red Local Heterogénea (Ubuntu - Ubuntu y Ubuntu - Windows con Samba)
 ---
 
 ## 🎥 Video Demostrativo en YouTube

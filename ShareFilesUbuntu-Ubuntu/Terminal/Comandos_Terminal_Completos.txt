@@ -1,0 +1,83 @@
+==============================================================================
+SESIÓN COMPLETA DE TERMINAL Y COMANDOS EJECUTADOS EN EL LABORATORIO
+==============================================================================
+
+[EQUIPOS PARTICIPANTES EN LA PRÁCTICA]
+------------------------------------------------------------------------------
+* Equipo 1 (Servidor/Cliente): israel@israel-BOM-WXX9 (Laptop Huawei)
+* Equipo 2 (Servidor/Cliente): ubucrys@ubipc (Laptop Lenovo/Dell)
+* Red: Red de área local (LAN) directa por cable Ethernet
+* Máscara de subred: 255.255.255.0 (/24)
+
+[PASO 1: CONFIGURACIÓN IP MANUAL Y COMPROBACIÓN BIDIRECCIONAL CON PING (-c 4)]
+------------------------------------------------------------------------------
+# En el equipo 1 (israel@israel-BOM-WXX9):
+israel@israel-BOM-WXX9:~$ ping -c 4 192.168.1.2
+PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
+64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=0.539 ms
+64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=1.06 ms
+64 bytes from 192.168.1.2: icmp_seq=3 ttl=64 time=0.791 ms
+64 bytes from 192.168.1.2: icmp_seq=4 ttl=64 time=0.994 ms
+
+--- 192.168.1.2 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3059ms
+rtt min/avg/max/mdev = 0.539/0.847/1.064/0.204 ms
+israel@israel-BOM-WXX9:~$ 
+
+# En el equipo 2 (ubucrys@ubipc):
+ubucrys@ubipc:~$ ping -c 4 192.168.1.7
+PING 192.168.1.7 (192.168.1.7) 56(84) bytes of data.
+64 bytes from 192.168.1.7: icmp_seq=1 ttl=64 time=0.916 ms
+64 bytes from 192.168.1.7: icmp_seq=2 ttl=64 time=0.849 ms
+64 bytes from 192.168.1.7: icmp_seq=3 ttl=64 time=0.800 ms
+64 bytes from 192.168.1.7: icmp_seq=4 ttl=64 time=0.804 ms
+
+--- 192.168.1.7 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3090ms
+rtt min/avg/max/mdev = 0.800/0.842/0.916/0.046 ms
+ubucrys@ubipc:~$ 
+
+[PASO 2: INSTALACIÓN Y CONFIGURACIÓN DEL SERVIDOR SAMBA]
+------------------------------------------------------------------------------
+israel@israel-BOM-WXX9:~$ sudo apt update && sudo apt install -y samba
+israel@israel-BOM-WXX9:~$ mkdir -p ~/Escritorio/IsrAMBA/1
+israel@israel-BOM-WXX9:~$ chmod -R 777 ~/Escritorio/IsrAMBA
+
+# Agregar bloque de compartición al archivo /etc/samba/smb.conf:
+# [IsrAMBA]
+#    comment = Carpeta Compartida Ubuntu a Ubuntu
+#    path = /home/israel/Escritorio/IsrAMBA
+#    browseable = yes
+#    read only = no
+#    create mask = 0777
+#    directory mask = 0777
+#    valid users = israel
+
+israel@israel-BOM-WXX9:~$ sudo smbpasswd -a israel
+New SMB password: **********
+Retype new SMB password: **********
+Added user israel.
+
+israel@israel-BOM-WXX9:~$ sudo systemctl restart smbd
+israel@israel-BOM-WXX9:~$ systemctl status smbd --no-pager
+* smbd.service - Samba SMB Daemon
+     Loaded: loaded (/lib/systemd/system/smbd.service; enabled)
+     Active: active (running)
+   Main PID: 3418 (smbd)
+     Status: "smbd: ready to serve connections..."
+
+[PASO 3: CONEXIÓN DESDE NAUTILUS (EXPLORADOR DE UBUNTU)]
+------------------------------------------------------------------------------
+# 1. En el equipo cliente, abrir el explorador de archivos Nautilus.
+# 2. Hacer clic en "Otras ubicaciones" (o "Red").
+# 3. En "Conectar al servidor" escribir la URI de red:
+#    smb://192.168.1.2/
+# 4. Nautilus lista los recursos compartidos:
+#    - IsrAMBA (recurso compartido de la práctica)
+#    - print$ (servicio de impresión por defecto de Samba)
+# 5. Al hacer doble clic en 'IsrAMBA', solicita credenciales de red:
+#    Usuario: israel
+#    Dominio: WORKGROUP
+#    Contraseña: [contraseña de smbpasswd]
+# 6. Se abre el recurso mostrando la carpeta '1' y los elementos compartidos.
+# 7. Ambos equipos pueden crear, leer, modificar y transferir archivos de forma instantánea.

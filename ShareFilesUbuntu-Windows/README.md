@@ -13,7 +13,7 @@
 
 | Sección | Descripción y Contenido | Enlace Directo |
 | :--- | :--- | :--- |
-| 💻 **Código** | Scripts en Bash limpios, funcionales y comentados para automatizar la red y Samba. | [Ver carpeta `Codigo/`](Codigo/) |
+| 💻 **Código** | Scripts en Bash limpios, funcionales y comentados para automatizar la red y Samba. | [Ver carpeta `Codigo y Scripts/`](Código/) |
 | 📸 **Terminal** | Capturas nítidas y fotografías reales de los comandos ejecutados en el laboratorio. | [Ver carpeta `Terminal/`](Terminal/) |
 | 📑 **Reporte PDF** | Documento formal en PDF con justificación teórica y análisis reflexivo del SO. | [Descargar `Reporte.pdf`](Reporte/Reporte_Transferencia_Ubuntu_Windows_Israel_Carmona.pdf) |
 | 📝 **Reporte Word** | Versión editable de Microsoft Word con membrete oficial del TecNM. | [Ver `Reporte.docx`](Reporte/Reporte_Transferencia_Ubuntu_Windows_Israel_Carmona.docx) |
